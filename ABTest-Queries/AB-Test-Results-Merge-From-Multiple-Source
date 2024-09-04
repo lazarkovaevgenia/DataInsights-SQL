@@ -1,0 +1,29 @@
+SELECT
+  test_data.Test_Name,
+  param.value.string_value AS variant,
+  COUNT(DISTINCT user_pseudo_id) AS total_users,
+  COUNTIF(event_name = 'session_start') AS total_sessions,
+  SUM(CAST(ep.value.int_value AS INT64)) AS total_engagement_time_msec,
+  test_data.Experiment_details,
+  test_data.Task_Category,
+  test_data.Experiment_Category,
+  test_data.Primary_Metric
+FROM
+  `clickup-integration-429015.analytics_285080713.events_20240901`,
+  UNNEST(event_params) AS param,
+  UNNEST(event_params) AS ep
+LEFT JOIN 
+  `clickup-integration-429015.CUdataset.CUtesttable` AS test_data
+ON 
+  param.value.string_value = test_data.Test_Name
+WHERE 
+  param.key = 'exp_variant_string'
+  AND param.value.string_value IN ('CONV-100496787-1004232282', 'CONV-100496787-1004232283')
+  AND ep.key = 'engagement_time_msec'
+GROUP BY 
+  test_data.Test_Name, 
+  param.value.string_value, 
+  test_data.Experiment_details, 
+  test_data.Task_Category, 
+  test_data.Experiment_Category, 
+  test_data.Primary_Metric;

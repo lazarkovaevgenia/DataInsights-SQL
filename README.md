@@ -19,3 +19,6 @@ This SQL script is designed to extract key metrics from Google Analytics 4 (GA4)
 <b>Traffic Source:</b> The source and medium of the traffic for the users.
 
 The data is grouped by the test variant, device category, and traffic source, providing insights into how different test variants perform across different segments.
+
+<h1>AB-Test-Results-Merge-From-Multiple-Source</h1>
+This SQL script combines data from two tables in BigQuery: CUtesttable, which contains information about A/B tests, and events_20240901, which includes user activity metrics. The script retrieves key metrics such as total users, total sessions, and total engagement time for each test variant, and joins this data with the test information from CUtesttable.

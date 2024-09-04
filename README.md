@@ -1,5 +1,8 @@
 The folder contains the following:
 
+<h1>VariationAnalysis-SQL</h1>
+This SQL script is designed to calculate the total number of users and sessions for specific A/B test variants by leveraging the raw data collected from GA4. The results are grouped by test variant, which allows for a clear comparison of user engagement and session count across different A/B test conditions.
+
 
 <h1>A/B Test Analysis SQL Script</h1>
 

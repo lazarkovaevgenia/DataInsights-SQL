@@ -1,3 +1,5 @@
+The folder contains the following:
+
 
 <h1>A/B Test Analysis SQL Script</h1>
 
